@@ -1,0 +1,23 @@
+$image-size: 4.5rem;
+
+.userInfo {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    height: 8rem;
+}
+
+.avatar {
+    object-fit: cover;
+    width: $image-size;
+    height: $image-size;
+    border-radius: 50%;
+}
+
+.textContainer {
+    margin-left: -30px;
+}
+
+h2, p {
+    font-size: 16px;
+}
