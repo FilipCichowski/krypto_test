@@ -11,13 +11,21 @@ export class ViewSelectorComponent implements OnInit {
       icon: 'space_dashboard',
       text: 'Popularne kryptowaluty',
       badgeNumber: null,
+      id: 1
     },
     {
       icon: 'savings',
       text: 'Moje kryptowaluty',
       badgeNumber: 4,
+      id: 2
     },
   ];
+
+  selectedItem = this.buttonsData[0];
+
+  onClick(item: any) {
+    this.selectedItem = item;
+  }
 
   constructor() {}
 

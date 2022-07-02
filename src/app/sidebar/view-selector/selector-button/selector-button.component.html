@@ -1,4 +1,3 @@
-<div class="selector-button">
     <mat-icon class="icon">{{icon}}</mat-icon>
     <ng-template [ngIf]="badgeNumber" [ngIfElse]="noBadge">
         <span matBadge="4" matBadgeOverlap="false" class="text" matBadgePosition="above after">{{text}}</span>
@@ -6,4 +5,3 @@
     <ng-template #noBadge>
         <span class="text">{{text}}</span>
     </ng-template>
-</div>
