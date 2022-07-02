@@ -1,7 +1,7 @@
-    <mat-icon class="icon">{{icon}}</mat-icon>
-    <ng-template [ngIf]="badgeNumber" [ngIfElse]="noBadge">
-        <span matBadge="4" matBadgeOverlap="false" class="text" matBadgePosition="above after">{{text}}</span>
+    <mat-icon class="icon">{{data.icon}}</mat-icon>
+    <ng-template [ngIf]="data.badgeNumber" [ngIfElse]="noBadge">
+        <span matBadge="4" matBadgeOverlap="false" class="text" matBadgePosition="above after">{{data.text}}</span>
     </ng-template>
     <ng-template #noBadge>
-        <span class="text">{{text}}</span>
+        <span class="text">{{data.text}}</span>
     </ng-template>

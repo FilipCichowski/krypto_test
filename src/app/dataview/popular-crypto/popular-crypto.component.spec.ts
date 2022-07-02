@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { GridComponent } from './grid.component';
+import { PopularCryptoComponent } from './popular-crypto.component';
 
-describe('GridComponent', () => {
-  let component: GridComponent;
-  let fixture: ComponentFixture<GridComponent>;
+describe('PopularCryptoComponent', () => {
+  let component: PopularCryptoComponent;
+  let fixture: ComponentFixture<PopularCryptoComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ GridComponent ]
+      declarations: [ PopularCryptoComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(GridComponent);
+    fixture = TestBed.createComponent(PopularCryptoComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

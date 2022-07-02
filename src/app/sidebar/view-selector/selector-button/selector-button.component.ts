@@ -7,12 +7,8 @@ import { Component, Input } from '@angular/core';
 })
 export class SelectorButtonComponent{
   @Input()
-  icon: string = "";
-  @Input()
-  text: string = "";
-  @Input()
-  badgeNumber: number | null = null;
-
+  data: any;
+  
   constructor() { 
   }
 

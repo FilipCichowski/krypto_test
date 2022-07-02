@@ -8,16 +8,16 @@ import { Component, OnInit } from '@angular/core';
 export class ViewSelectorComponent implements OnInit {
   buttonsData = [
     {
-      icon: 'space_dashboard',
-      text: 'Popularne kryptowaluty',
-      badgeNumber: null,
-      id: 1
+      "icon": "space_dashboard",
+      "text": "Popularne kryptowaluty",
+      "badgeNumber": null,
+      "id": 1
     },
     {
-      icon: 'savings',
-      text: 'Moje kryptowaluty',
-      badgeNumber: 4,
-      id: 2
+      "icon": "savings",
+      "text": 'Moje kryptowaluty',
+      "badgeNumber": 4,
+      "id": 2
     },
   ];
 
@@ -25,6 +25,10 @@ export class ViewSelectorComponent implements OnInit {
 
   onClick(item: any) {
     this.selectedItem = item;
+  }
+
+  getSelectedItem() {
+    return this.selectedItem;
   }
 
   constructor() {}

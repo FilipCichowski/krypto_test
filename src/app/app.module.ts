@@ -1,3 +1,4 @@
+import { EventEmitterService } from './event-emitter.service';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -5,7 +6,6 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { DataviewComponent } from './dataview/dataview.component';
-import { GridComponent } from './dataview/grid/grid.component';
 import { UserInfoComponent } from './sidebar/user-info/user-info.component';
 import { DxDataGridModule } from 'devextreme-angular';
 import { ViewSelectorComponent } from './sidebar/view-selector/view-selector.component';
@@ -13,6 +13,8 @@ import { SelectorButtonComponent } from './sidebar/view-selector/selector-button
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatIconModule} from '@angular/material/icon';
 import {MatBadgeModule} from '@angular/material/badge';
+import { MyCryptoComponent } from './dataview/my-crypto/my-crypto.component';
+import { PopularCryptoComponent } from './dataview/popular-crypto/popular-crypto.component';
 
 @NgModule({
   declarations: [
@@ -20,10 +22,11 @@ import {MatBadgeModule} from '@angular/material/badge';
     HeaderComponent,
     SidebarComponent,
     DataviewComponent,
-    GridComponent,
     UserInfoComponent,
     ViewSelectorComponent,
-    SelectorButtonComponent
+    SelectorButtonComponent,
+    MyCryptoComponent,
+    PopularCryptoComponent
   ],
   imports: [
     BrowserModule,
@@ -32,7 +35,9 @@ import {MatBadgeModule} from '@angular/material/badge';
     MatIconModule,
     MatBadgeModule
   ],
-  providers: [],
+  providers: [
+    EventEmitterService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

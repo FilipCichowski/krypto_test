@@ -1,15 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
+import { EventEmitterService } from '../event-emitter.service';
 
 @Component({
   selector: 'app-dataview',
   templateUrl: './dataview.component.html',
-  styleUrls: ['./dataview.component.scss']
+  styleUrls: ['./dataview.component.scss'],
 })
 export class DataviewComponent implements OnInit {
 
-  constructor() { }
+  constructor(private eventEmitterService: EventEmitterService) {}
 
-  ngOnInit(): void {
+  ngOnInit(): void {}
+
+  getSelected() {
+    this.eventEmitterService.onInvokeGetSelectedItem();
   }
-
 }
