@@ -1,4 +1,4 @@
-import { EventEmitterService } from './event-emitter.service';
+import { ActiveButtonService } from './active-button.service';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -36,7 +36,7 @@ import { PopularCryptoComponent } from './dataview/popular-crypto/popular-crypto
     MatBadgeModule
   ],
   providers: [
-    EventEmitterService
+    ActiveButtonService
   ],
   bootstrap: [AppComponent]
 })

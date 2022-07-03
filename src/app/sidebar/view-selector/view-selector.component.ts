@@ -1,3 +1,4 @@
+import { ActiveButtonService } from './../../active-button.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,32 +7,21 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./view-selector.component.scss'],
 })
 export class ViewSelectorComponent implements OnInit {
-  buttonsData = [
-    {
-      "icon": "space_dashboard",
-      "text": "Popularne kryptowaluty",
-      "badgeNumber": null,
-      "id": 1
-    },
-    {
-      "icon": "savings",
-      "text": 'Moje kryptowaluty',
-      "badgeNumber": 4,
-      "id": 2
-    },
-  ];
-
-  selectedItem = this.buttonsData[0];
 
   onClick(item: any) {
-    this.selectedItem = item;
+    this.activeButtonService.setSelectedItem(item);
+    this.activeButtonService.notifyOther({refresh: true});
   }
 
   getSelectedItem() {
-    return this.selectedItem;
+    return this.activeButtonService.getSelectedItem();
   }
 
-  constructor() {}
-
-  ngOnInit(): void {}
+   constructor(private activeButtonService: ActiveButtonService) { }   
+   
+  getButtonData() {
+    return this.activeButtonService.getButtonData();
+  }
+    
+  ngOnInit() { }     
 }

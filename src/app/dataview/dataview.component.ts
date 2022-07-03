@@ -1,5 +1,6 @@
+import { ActiveButtonService } from './../active-button.service';
 import { Component, OnInit, Output } from '@angular/core';
-import { EventEmitterService } from '../event-emitter.service';
+import { withLatestFrom } from 'rxjs';
 
 @Component({
   selector: 'app-dataview',
@@ -7,12 +8,18 @@ import { EventEmitterService } from '../event-emitter.service';
   styleUrls: ['./dataview.component.scss'],
 })
 export class DataviewComponent implements OnInit {
+  activeElementId: number | undefined;
 
-  constructor(private eventEmitterService: EventEmitterService) {}
+  constructor(private activeButtonService: ActiveButtonService) {}
 
-  ngOnInit(): void {}
-
-  getSelected() {
-    this.eventEmitterService.onInvokeGetSelectedItem();
+  ngOnInit(): void {
+    // initialize component with data first time 
+    this.activeElementId = this.activeButtonService.getSelectedItem().id;
+    // update component if active data was changed
+    this.activeButtonService.notifyObservable$.subscribe(res => {
+      if (res.refresh) {
+         this.activeElementId = this.activeButtonService.getSelectedItem().id;
+      }
+    })
   }
 }
