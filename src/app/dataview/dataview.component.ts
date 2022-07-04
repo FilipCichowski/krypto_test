@@ -1,6 +1,5 @@
-import { ActiveButtonService } from './../active-button.service';
-import { Component, OnInit, Output } from '@angular/core';
-import { withLatestFrom } from 'rxjs';
+import { ActiveButtonService } from '../services/active-button.service';
+import { Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-dataview',

@@ -1,4 +1,4 @@
-import { ActiveButtonService } from './../../active-button.service';
+import { ActiveButtonService } from '../../services/active-button.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({

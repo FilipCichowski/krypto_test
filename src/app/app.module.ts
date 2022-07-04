@@ -1,4 +1,4 @@
-import { ActiveButtonService } from './active-button.service';
+import { ActiveButtonService } from './services/active-button.service';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -10,11 +10,12 @@ import { UserInfoComponent } from './sidebar/user-info/user-info.component';
 import { DxDataGridModule } from 'devextreme-angular';
 import { ViewSelectorComponent } from './sidebar/view-selector/view-selector.component';
 import { SelectorButtonComponent } from './sidebar/view-selector/selector-button/selector-button.component';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MatIconModule} from '@angular/material/icon';
-import {MatBadgeModule} from '@angular/material/badge';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatIconModule } from '@angular/material/icon';
+import { MatBadgeModule } from '@angular/material/badge';
 import { MyCryptoComponent } from './dataview/my-crypto/my-crypto.component';
 import { PopularCryptoComponent } from './dataview/popular-crypto/popular-crypto.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { PopularCryptoComponent } from './dataview/popular-crypto/popular-crypto
     DxDataGridModule,
     BrowserAnimationsModule,
     MatIconModule,
-    MatBadgeModule
+    MatBadgeModule,
+    HttpClientModule
   ],
   providers: [
     ActiveButtonService
