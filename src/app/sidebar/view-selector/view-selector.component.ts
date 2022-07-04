@@ -17,7 +17,7 @@ export class ViewSelectorComponent implements OnInit {
     return this.activeButtonService.getSelectedItem();
   }
 
-   constructor(private activeButtonService: ActiveButtonService) { }   
+  constructor(private activeButtonService: ActiveButtonService) { }   
    
   getButtonData() {
     return this.activeButtonService.getButtonData();

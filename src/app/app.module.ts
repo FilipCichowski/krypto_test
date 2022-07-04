@@ -8,6 +8,7 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { DataviewComponent } from './dataview/dataview.component';
 import { UserInfoComponent } from './sidebar/user-info/user-info.component';
 import { DxDataGridModule } from 'devextreme-angular';
+import { DxiColumnModule } from 'devextreme-angular/ui/nested';
 import { ViewSelectorComponent } from './sidebar/view-selector/view-selector.component';
 import { SelectorButtonComponent } from './sidebar/view-selector/selector-button/selector-button.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -34,6 +35,7 @@ import { MatButtonModule } from '@angular/material/button';
   imports: [
     BrowserModule,
     DxDataGridModule,
+    DxiColumnModule,
     BrowserAnimationsModule,
     MatIconModule,
     MatBadgeModule,

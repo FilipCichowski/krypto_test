@@ -8,7 +8,9 @@ export interface CryptoData {
   price: number,
   low: number,
   high: number,
-  marketCap: number
+  marketCap: number,
+  img: string,
+  isSelected: boolean
 }
 
 @Injectable({
@@ -44,6 +46,8 @@ export class CoinDataService {
         singleCryptoInfo.low = 69
         singleCryptoInfo.high = 420
         singleCryptoInfo.marketCap = 7
+        singleCryptoInfo.img = "https://assets.coingecko.com/coins/images/1/thumb/bitcoin.png?1547033579"
+        singleCryptoInfo.isSelected = true;
         this.cryptoData.push(singleCryptoInfo);
     })
   }
