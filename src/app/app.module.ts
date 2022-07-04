@@ -16,6 +16,8 @@ import { MatBadgeModule } from '@angular/material/badge';
 import { MyCryptoComponent } from './dataview/my-crypto/my-crypto.component';
 import { PopularCryptoComponent } from './dataview/popular-crypto/popular-crypto.component';
 import { HttpClientModule } from '@angular/common/http';
+import { MatButtonModule } from '@angular/material/button';
+
 
 @NgModule({
   declarations: [
@@ -27,7 +29,7 @@ import { HttpClientModule } from '@angular/common/http';
     ViewSelectorComponent,
     SelectorButtonComponent,
     MyCryptoComponent,
-    PopularCryptoComponent
+    PopularCryptoComponent,
   ],
   imports: [
     BrowserModule,
@@ -35,6 +37,7 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserAnimationsModule,
     MatIconModule,
     MatBadgeModule,
+    MatButtonModule,
     HttpClientModule
   ],
   providers: [

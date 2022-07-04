@@ -18,18 +18,33 @@ export class CoinDataService {
   private url: string = 'https://api.coingecko.com/api/v3/coins/';
   private cryptoData: CryptoData[] = [];
 
+  // refreshCryptoData() {
+  //   this.mostPopularCrypto.getMostPopular().forEach(id => {
+  //     this.getApiData(id).subscribe((data) => {
+  //       console.log(data);
+  //       let singleCryptoInfo: CryptoData = {} as CryptoData;
+  //       singleCryptoInfo.symbol = data.symbol;
+  //       singleCryptoInfo.name = data.name;
+  //       singleCryptoInfo.price = data.market_data.current_price.usd;
+  //       singleCryptoInfo.low = data.market_data.low_24h.usd;
+  //       singleCryptoInfo.high = data.market_data.high_24h.usd;
+  //       singleCryptoInfo.marketCap = data.market_cap_rank;
+  //       this.cryptoData.push(singleCryptoInfo);
+  //     })
+  //   })
+  // }
+
+  // just for debugging purpose
   refreshCryptoData() {
-    this.mostPopularCrypto.getUserSelected().forEach(id => {
-      this.getApiData(id).subscribe((data) => {
-        let singleCryptoInfo: CryptoData = {} as CryptoData;
-        singleCryptoInfo.symbol = data.symbol;
-        singleCryptoInfo.name = data.name;
-        singleCryptoInfo.price = data.market_data.current_price.usd;
-        singleCryptoInfo.low = data.market_data.low_24h.usd;
-        singleCryptoInfo.high = data.market_data.high_24h.usd;
-        singleCryptoInfo.marketCap = data.market_cap_rank;
+    this.mostPopularCrypto.getMostPopular().forEach(id => {
+      let singleCryptoInfo: CryptoData = {} as CryptoData;
+        singleCryptoInfo.symbol = id
+        singleCryptoInfo.name = id
+        singleCryptoInfo.price = 2137
+        singleCryptoInfo.low = 69
+        singleCryptoInfo.high = 420
+        singleCryptoInfo.marketCap = 7
         this.cryptoData.push(singleCryptoInfo);
-      })
     })
   }
 
@@ -43,5 +58,7 @@ export class CoinDataService {
 
   constructor(
     private httpClient: HttpClient, private mostPopularCrypto: MostPopularCryptoService
-  ) {}
+  ) {
+    this.refreshCryptoData();
+  }
 }

@@ -1,4 +1,11 @@
-<p>popular-crypto works!</p>
-<p *ngFor="let crypto of cryptoData">
-    {{crypto.name}}
-</p>
+<h2>Popularne kryptowaluty</h2>
+<dx-data-grid
+    [dataSource]="cryptoData">
+        <dxo-scrolling
+        mode="standard" [useNative]="true">
+    </dxo-scrolling>
+</dx-data-grid>
+<div class="buttons">
+    <button mat-raised-button color="primary" [disabled]="false">Dodaj do moich</button>
+    <button mat-raised-button color="warn" [disabled]="false">Usuń z moich</button>
+</div>

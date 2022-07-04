@@ -1,6 +1,5 @@
 import { CoinDataService } from './../../services/coin-data.service';
 import { Component, OnInit } from '@angular/core';
-import { CryptoData } from 'src/app/services/coin-data.service';
 
 @Component({
   selector: 'app-popular-crypto',
@@ -13,7 +12,7 @@ export class PopularCryptoComponent implements OnInit {
   constructor(private coinData: CoinDataService) { }
 
   ngOnInit(): void {
-    this.coinData.refreshCryptoData();
     this.cryptoData = this.coinData.getCryptoData();  
+    console.log(this.cryptoData)
   }
 }
