@@ -1,38 +1,28 @@
-import { CoinDataService, CryptoData } from './coin-data.service';
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
+import { CoinDataService } from './coin-data.service';
+import { CryptoData } from '../interfaces/crypto-data';
 import { UserSelectedService } from './user-selected.service';
-
-export interface CryptoDataSelected {
-  symbol: string,
-  name: string,
-  price: number,
-  low: number,
-  high: number,
-  marketCap: number,
-  img: string,
-  id: string,
-  isSelected: boolean
-}
+import { CryptoDataSelected } from '../interfaces/crypto-data-selected';
 
 @Injectable({
   providedIn: 'root',
 })
-
 export class TableDataService {
-  tableData: CryptoData[] = this.coinData.getCryptoData();
-  tableDataSelectedOnly: CryptoDataSelected[] = [];
+  private tableData: CryptoDataSelected[] = [];
+  private tableDataSelectedOnly: CryptoDataSelected[] = [];
 
   private updateTableData() {
-    this.tableData.forEach((e: any) => {
-      this.userSelected.getUserSelected().includes(e.id)
-        ? (e.isSelected = true)
-        : (e.isSelected = false);
-    });
+    for (let e of this.coinData.getCryptoData()) {
+      if (this.userSelected.getUserSelected().includes(e.id)) {
+        this.tableData.push({...e, isSelected: true})
+      } else {
+        this.tableData.push({ ...e, isSelected: false });
+      }
+    }
   }
 
   private updateTableDataSelectedOnly() {
     this.tableData.forEach((e: any) => {
-      console.log("update table ", e)
       if (e.isSelected) {
         this.tableDataSelectedOnly.push(e);
       }
@@ -54,4 +44,6 @@ export class TableDataService {
     this.updateTableData();
     this.updateTableDataSelectedOnly();
   }
+
+  ngOnInit() {}
 }

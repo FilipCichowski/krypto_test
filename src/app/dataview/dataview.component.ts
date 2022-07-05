@@ -1,5 +1,5 @@
+import { Component, OnInit } from '@angular/core';
 import { ActiveButtonService } from '../services/active-button.service';
-import { Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-dataview',
@@ -7,18 +7,18 @@ import { Component, OnInit} from '@angular/core';
   styleUrls: ['./dataview.component.scss'],
 })
 export class DataviewComponent implements OnInit {
-  activeElementId: number | undefined;
+  activeElementId!: number;
 
   constructor(private activeButtonService: ActiveButtonService) {}
 
   ngOnInit(): void {
-    // initialize component with data first time 
+    // initialize component with data first time
     this.activeElementId = this.activeButtonService.getSelectedItem().id;
     // update component if active data was changed
-    this.activeButtonService.notifyObservable$.subscribe(res => {
+    this.activeButtonService.notifyObservable$.subscribe((res) => {
       if (res.refresh) {
-         this.activeElementId = this.activeButtonService.getSelectedItem().id;
+        this.activeElementId = this.activeButtonService.getSelectedItem().id;
       }
-    })
+    });
   }
 }

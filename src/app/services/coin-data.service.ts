@@ -1,17 +1,7 @@
-import { Injectable } from '@angular/core';
-import { MostPopularCryptoService } from './most-popular-crypto.service';
+import { Injectable, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-
-export interface CryptoData {
-  symbol: string,
-  name: string,
-  price: number,
-  low: number,
-  high: number,
-  marketCap: number,
-  img: string,
-  id: string
-}
+import { MostPopularCryptoService } from './most-popular-crypto.service';
+import { CryptoData } from '../interfaces/crypto-data';
 
 @Injectable({
   providedIn: 'root',
@@ -38,21 +28,22 @@ export class CoinDataService {
 
   // just for debugging purpose
   refreshCryptoData() {
-    this.mostPopularCrypto.getMostPopular().forEach(id => {
+    this.mostPopularCrypto.getMostPopular().forEach((id) => {
       let singleCryptoInfo: CryptoData = {} as CryptoData;
       singleCryptoInfo.id = id;
-        singleCryptoInfo.symbol = id;
-        singleCryptoInfo.name = id;
-        singleCryptoInfo.price = 2137;
-        singleCryptoInfo.low = 69;
-        singleCryptoInfo.high = 420;
-        singleCryptoInfo.marketCap = 7;
-        singleCryptoInfo.img = "https://assets.coingecko.com/coins/images/1/thumb/bitcoin.png?1547033579";
-        this.cryptoData.push(singleCryptoInfo);
-    })
+      singleCryptoInfo.symbol = id;
+      singleCryptoInfo.name = id;
+      singleCryptoInfo.price = 2137;
+      singleCryptoInfo.low = 69;
+      singleCryptoInfo.high = 420;
+      singleCryptoInfo.marketCap = 7;
+      singleCryptoInfo.img =
+        'https://assets.coingecko.com/coins/images/1/thumb/bitcoin.png?1547033579';
+      this.cryptoData.push(singleCryptoInfo);
+    });
   }
 
-  private getApiData(id: string) {
+  private getDataFromApi(id: string) {
     return this.httpClient.get<any>(this.url + id);
   }
 
@@ -61,8 +52,11 @@ export class CoinDataService {
   }
 
   constructor(
-    private httpClient: HttpClient, private mostPopularCrypto: MostPopularCryptoService
+    private httpClient: HttpClient,
+    private mostPopularCrypto: MostPopularCryptoService
   ) {
     this.refreshCryptoData();
   }
+
+  ngOnInit() {}
 }

@@ -1,4 +1,5 @@
-import { CryptoData, CoinDataService } from './../../services/coin-data.service';
+import { CryptoData } from './../../interfaces/crypto-data';
+import { CoinDataService } from './../../services/coin-data.service';
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
@@ -8,7 +9,7 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class AddCryptopDialogComponent implements OnInit {
   @Input()
-  availableCrypto: any;
+  availableCrypto: CryptoData[] = [];
 
   constructor(private cryptoData: CoinDataService) { }
 

@@ -1,14 +1,22 @@
 import { Injectable } from '@angular/core';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class UserSelectedService {
   // mock user's crypto data
-  private userSelected: string[] = ["bitcoin", "ethereum", "tether", "dogecoin"];
+  private userSelected: string[] = [
+    'bitcoin',
+    'ethereum',
+    'tether',
+    'dogecoin',
+  ];
 
   public removeSelectedById(id: string) {
-    this.userSelected.splice(this.userSelected.findIndex(e => e === id), 1);
+    this.userSelected.splice(
+      this.userSelected.findIndex((e) => e === id),
+      1
+    );
   }
 
   public addUserSelected(id: string) {
@@ -19,5 +27,5 @@ export class UserSelectedService {
     return this.userSelected;
   }
 
-  constructor() { }
+  constructor() {}
 }

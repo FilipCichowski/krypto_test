@@ -1,10 +1,7 @@
-<dx-data-grid
-    [dataSource]="data">
-    <dxo-scrolling mode="standard" [useNative]="true"></dxo-scrolling>
-    <dxo-selection
-        mode="single">
-    </dxo-selection>
-    <dxi-column
+<dx-data-grid [dataSource]="data">
+  <dxo-scrolling mode="standard" [useNative]="true"></dxo-scrolling>
+  <dxo-selection mode="single"> </dxo-selection>
+  <dxi-column
     dataField="img"
     caption="Logo"
     [width]="100"
@@ -12,60 +9,70 @@
     [allowSorting]="false"
     cellTemplate="imgTemplate"
   ></dxi-column>
-    <dxi-column
-        dataField="symbol"
-        caption="Symbol"
-        alignment="left">
-    </dxi-column>
-    <dxi-column
-        dataField="name"
-        caption="Nazwa"
-        alignment="left">
-    </dxi-column>
-    <dxi-column
-        dataField="price"
-        caption="Aktualna wartość">
-    </dxi-column>
-    <dxi-column
-        dataField="marketCap"
-        [width]="200"
-        caption="Kapitalizacja rynkowa">
-    </dxi-column>
-    <dxi-column
-        dataField="low"
-        caption="Low"
-        cellTemplate="lowTemplate"
-        alignment="center">
-    </dxi-column>
-    <dxi-column
-        dataField="high"
-        caption="High"
-        cellTemplate="highTemplate"
-        alignment="center">
-    </dxi-column>
-    <dxi-column
+  <dxi-column dataField="symbol" caption="Symbol" alignment="left">
+  </dxi-column>
+  <dxi-column dataField="name" caption="Nazwa" alignment="left"> </dxi-column>
+  <dxi-column dataField="price" caption="Aktualna wartość"> </dxi-column>
+  <dxi-column
+    dataField="marketCap"
+    [width]="200"
+    caption="Kapitalizacja rynkowa"
+  >
+  </dxi-column>
+  <dxi-column
+    dataField="low"
+    caption="Low"
+    cellTemplate="lowTemplate"
+    alignment="center"
+  >
+  </dxi-column>
+  <dxi-column
+    dataField="high"
+    caption="High"
+    cellTemplate="highTemplate"
+    alignment="center"
+  >
+  </dxi-column>
+  <dxi-column
     dataField="isSelected"
     caption="Moja kryptowaluta"
     [width]="170"
     [allowFiltering]="false"
     [allowSorting]="false"
     cellTemplate="myCryptoTemplate"
-    ></dxi-column>
-    // Display coin icon
-    <div *dxTemplate="let e of 'imgTemplate'">
-        <img [src]="e.value" />
+  ></dxi-column>
+  // Display coin icon
+  <div *dxTemplate="let e of 'imgTemplate'">
+    <img [src]="e.value" />
+  </div>
+  // Set Low background to green
+  <div *dxTemplate="let e of 'lowTemplate'">
+    <div
+      style="
+        background-color: green;
+        border-radius: 5px;
+        text-align: center;
+        padding: 5px;
+      "
+    >
+      {{ e.text }}
     </div>
-    // Set Low background to green
-    <div *dxTemplate="let e of 'lowTemplate'">
-        <div style="background-color: green; border-radius: 5px; text-align: center; padding: 5px;">{{e.text}}</div>
+  </div>
+  // Set High background to red
+  <div *dxTemplate="let e of 'highTemplate'">
+    <div
+      style="
+        background-color: rgb(231, 52, 52);
+        border-radius: 5px;
+        text-align: center;
+        padding: 5px;
+      "
+    >
+      {{ e.text }}
     </div>
-    // Set High background to red
-    <div *dxTemplate="let e of 'highTemplate'">
-        <div style="background-color: rgb(231, 52, 52); border-radius: 5px; text-align: center; padding: 5px;">{{e.text}}</div>
-    </div>
-    // Display icon only if isSelected property is true
-    <div *dxTemplate="let e of 'myCryptoTemplate'">
-        <mat-icon *ngIf="e.value">done</mat-icon>
-    </div>
+  </div>
+  // Display icon only if isSelected property is true
+  <div *dxTemplate="let e of 'myCryptoTemplate'">
+    <mat-icon *ngIf="e.value">done</mat-icon>
+  </div>
 </dx-data-grid>
-

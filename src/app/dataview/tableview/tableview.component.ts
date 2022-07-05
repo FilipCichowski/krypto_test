@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { CryptoDataSelected } from 'src/app/interfaces/crypto-data-selected';
 
 @Component({
   selector: 'app-tableview',
@@ -7,8 +8,8 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class TableviewComponent implements OnInit {
   @Input()
-  data: any;
-  
+  data!: CryptoDataSelected[];
+
   constructor() {}
 
   ngOnInit(): void {}

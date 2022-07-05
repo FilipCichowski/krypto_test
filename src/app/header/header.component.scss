@@ -1,15 +1,20 @@
 .head {
-    width: 100vw;
-    height: 3.5rem;
-    background: rgb(114,79,182);
-    background: linear-gradient(90deg, rgba(114,79,182,1) 0%, rgba(61,61,143,1) 60%, rgba(56,11,83,1) 100%);
+  width: 100vw;
+  height: 3.5rem;
+  background: rgb(114, 79, 182);
+  background: linear-gradient(
+    90deg,
+    rgba(114, 79, 182, 1) 0%,
+    rgba(61, 61, 143, 1) 60%,
+    rgba(56, 11, 83, 1) 100%
+  );
 }
 
 h1 {
-    position: relative;
-    top: 50%;
-    transform: translateY(-50%);
-    margin-left: 3rem;
-    font-weight: 500;
-    font-size: 24px;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  margin-left: 3rem;
+  font-weight: 500;
+  font-size: 24px;
 }
