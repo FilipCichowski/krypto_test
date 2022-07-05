@@ -1,7 +1,9 @@
+import { AddCryptopDialogComponent } from './../add-cryptop-dialog/add-cryptop-dialog.component';
 import { TableDataService } from './../../services/table-data.service';
 import { UserSelectedService } from './../../services/user-selected.service';
 import { CoinDataService } from './../../services/coin-data.service';
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-popular-crypto',
@@ -11,7 +13,14 @@ import { Component, OnInit } from '@angular/core';
 export class PopularCryptoComponent implements OnInit {
   data: any;
 
-  constructor(private tableData: TableDataService) {
+  onAddCrypto() {
+    const addCryptoDialog = this.dialog.open(AddCryptopDialogComponent, {
+      disableClose: true,
+      panelClass: 'add-crypto-container'
+    })
+  }
+
+  constructor(private tableData: TableDataService, private dialog: MatDialog) {
   }
 
   ngOnInit(): void {

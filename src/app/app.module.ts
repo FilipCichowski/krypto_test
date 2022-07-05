@@ -12,13 +12,12 @@ import { DxiColumnModule } from 'devextreme-angular/ui/nested';
 import { ViewSelectorComponent } from './sidebar/view-selector/view-selector.component';
 import { SelectorButtonComponent } from './sidebar/view-selector/selector-button/selector-button.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatIconModule } from '@angular/material/icon';
-import { MatBadgeModule } from '@angular/material/badge';
 import { MyCryptoComponent } from './dataview/my-crypto/my-crypto.component';
 import { PopularCryptoComponent } from './dataview/popular-crypto/popular-crypto.component';
 import { HttpClientModule } from '@angular/common/http';
-import { MatButtonModule } from '@angular/material/button';
 import { TableviewComponent } from './dataview/tableview/tableview.component';
+import { MaterialModule } from './shared/material.module';
+import { AddCryptopDialogComponent } from './dataview/add-cryptop-dialog/add-cryptop-dialog.component';
 
 
 @NgModule({
@@ -33,16 +32,15 @@ import { TableviewComponent } from './dataview/tableview/tableview.component';
     MyCryptoComponent,
     PopularCryptoComponent,
     TableviewComponent,
+    AddCryptopDialogComponent,
   ],
   imports: [
     BrowserModule,
     DxDataGridModule,
     DxiColumnModule,
     BrowserAnimationsModule,
-    MatIconModule,
-    MatBadgeModule,
-    MatButtonModule,
-    HttpClientModule
+    HttpClientModule,
+    MaterialModule
   ],
   providers: [
     ActiveButtonService
