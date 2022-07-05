@@ -1,8 +1,23 @@
-<h3>Dodaj do moich kryptowalut</h3>
+<div class="add-crypto">
+  <h3>Dodaj do moich kryptowalut</h3>
 <form autocomplete="off">
-  <div mat-dialog-content></div>
+  <div mat-dialog-content class="inputs">
+    <mat-form-field appearance="fill">
+      <mat-label>Dodaj do moich</mat-label>
+      <mat-select>
+        <mat-option *ngFor="let e of availableCrypto" [value]="e.name">
+          {{ e.name }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Wartość" />
+    </mat-form-field>
+  </div>
   <div mat-dialog-actions>
     <button mat-raised-button color="primary" type="submit">Zapisz</button>
     <button mat-raised-button color="warn">Anuluj</button>
   </div>
 </form>
+
+</div>

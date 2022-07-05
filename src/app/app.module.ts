@@ -19,7 +19,6 @@ import { TableviewComponent } from './dataview/tableview/tableview.component';
 import { MaterialModule } from './shared/material.module';
 import { AddCryptopDialogComponent } from './dataview/add-cryptop-dialog/add-cryptop-dialog.component';
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,11 +39,9 @@ import { AddCryptopDialogComponent } from './dataview/add-cryptop-dialog/add-cry
     DxiColumnModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    MaterialModule
+    MaterialModule,
   ],
-  providers: [
-    ActiveButtonService
-  ],
-  bootstrap: [AppComponent]
+  providers: [ActiveButtonService],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

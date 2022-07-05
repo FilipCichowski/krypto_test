@@ -1,29 +1,36 @@
 import { AddCryptopDialogComponent } from './../add-cryptop-dialog/add-cryptop-dialog.component';
 import { TableDataService } from './../../services/table-data.service';
 import { UserSelectedService } from './../../services/user-selected.service';
-import { CoinDataService } from './../../services/coin-data.service';
+import { CoinDataService, CryptoData } from './../../services/coin-data.service';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { OverlayContainer } from '@angular/cdk/overlay';
 
 @Component({
   selector: 'app-popular-crypto',
   templateUrl: './popular-crypto.component.html',
-  styleUrls: ['./popular-crypto.component.scss']
+  styleUrls: ['./popular-crypto.component.scss'],
 })
 export class PopularCryptoComponent implements OnInit {
-  data: any;
+  tableData: any;
+  cryptoData: any;
 
   onAddCrypto() {
     const addCryptoDialog = this.dialog.open(AddCryptopDialogComponent, {
       disableClose: true,
-      panelClass: 'add-crypto-container'
-    })
+      panelClass: 'add-crypto-container',
+    });
   }
 
-  constructor(private tableData: TableDataService, private dialog: MatDialog) {
-  }
+  constructor(
+    private tableDataServ: TableDataService,
+    private dialog: MatDialog,
+    private coinData: CoinDataService,
+    private overlay: OverlayContainer
+  ) {}
 
   ngOnInit(): void {
-    this.data = this.tableData.getTableData();
+    this.tableData = this.tableDataServ.getTableData();
+    this.overlay.getContainerElement().classList.add("darkMode");
   }
 }
