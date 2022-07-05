@@ -1,3 +1,5 @@
+import { TableDataService } from './../../services/table-data.service';
+import { UserSelectedService } from './../../services/user-selected.service';
 import { CoinDataService } from './../../services/coin-data.service';
 import { Component, OnInit } from '@angular/core';
 
@@ -7,12 +9,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./popular-crypto.component.scss']
 })
 export class PopularCryptoComponent implements OnInit {
-  cryptoData: any;
+  data: any;
 
-  constructor(private coinData: CoinDataService) { }
+  constructor(private tableData: TableDataService) {
+  }
 
   ngOnInit(): void {
-    this.cryptoData = this.coinData.getCryptoData();  
-    console.log(this.cryptoData)
+    this.data = this.tableData.getTableData();
   }
 }

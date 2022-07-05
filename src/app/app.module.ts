@@ -18,6 +18,7 @@ import { MyCryptoComponent } from './dataview/my-crypto/my-crypto.component';
 import { PopularCryptoComponent } from './dataview/popular-crypto/popular-crypto.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MatButtonModule } from '@angular/material/button';
+import { TableviewComponent } from './dataview/tableview/tableview.component';
 
 
 @NgModule({
@@ -31,6 +32,7 @@ import { MatButtonModule } from '@angular/material/button';
     SelectorButtonComponent,
     MyCryptoComponent,
     PopularCryptoComponent,
+    TableviewComponent,
   ],
   imports: [
     BrowserModule,

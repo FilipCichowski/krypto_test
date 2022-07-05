@@ -1,0 +1,12 @@
+h2 {
+    font-size: 42px;
+    padding: 50px 0 10px 50px
+}
+
+.buttons {
+    padding: 30px;
+    & button {
+        margin: 0 20px;
+        font-size: 1.1rem;
+    }
+}

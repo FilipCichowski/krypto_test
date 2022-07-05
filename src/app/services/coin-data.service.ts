@@ -10,7 +10,7 @@ export interface CryptoData {
   high: number,
   marketCap: number,
   img: string,
-  isSelected: boolean
+  id: string
 }
 
 @Injectable({
@@ -40,19 +40,19 @@ export class CoinDataService {
   refreshCryptoData() {
     this.mostPopularCrypto.getMostPopular().forEach(id => {
       let singleCryptoInfo: CryptoData = {} as CryptoData;
-        singleCryptoInfo.symbol = id
-        singleCryptoInfo.name = id
-        singleCryptoInfo.price = 2137
-        singleCryptoInfo.low = 69
-        singleCryptoInfo.high = 420
-        singleCryptoInfo.marketCap = 7
-        singleCryptoInfo.img = "https://assets.coingecko.com/coins/images/1/thumb/bitcoin.png?1547033579"
-        singleCryptoInfo.isSelected = true;
+      singleCryptoInfo.id = id;
+        singleCryptoInfo.symbol = id;
+        singleCryptoInfo.name = id;
+        singleCryptoInfo.price = 2137;
+        singleCryptoInfo.low = 69;
+        singleCryptoInfo.high = 420;
+        singleCryptoInfo.marketCap = 7;
+        singleCryptoInfo.img = "https://assets.coingecko.com/coins/images/1/thumb/bitcoin.png?1547033579";
         this.cryptoData.push(singleCryptoInfo);
     })
   }
 
-  public getApiData(id: string) {
+  private getApiData(id: string) {
     return this.httpClient.get<any>(this.url + id);
   }
 
