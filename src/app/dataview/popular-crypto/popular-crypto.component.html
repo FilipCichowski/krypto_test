@@ -1,18 +1,13 @@
 <h2>Popularne kryptowaluty</h2>
 <app-tableview [data]="tableData"></app-tableview>
 <div class="buttons">
-  <button
-    mat-raised-button
-    color="primary"
-    [disabled]="false"
-    (click)="onAddCrypto()"
-  >
+  <button mat-raised-button color="primary" (click)="onAddCrypto()">
     Dodaj do moich
   </button>
   <button
     mat-raised-button
     color="warn"
-    [disabled]="false"
+    [disabled]="disableDelete"
     (click)="onDeleteCrypto()"
   >
     Usuń z moich

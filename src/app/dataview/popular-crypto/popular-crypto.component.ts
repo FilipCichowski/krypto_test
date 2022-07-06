@@ -7,6 +7,7 @@ import { TableDataService } from './../../services/table-data.service';
 import { CryptoDataSelected } from 'src/app/interfaces/crypto-data-selected';
 import { DataService } from 'src/app/services/refresh-data.service';
 import { Subscription } from 'rxjs';
+import { DeleteButtonStateService } from 'src/app/services/delete-button-state.service';
 
 @Component({
   selector: 'app-popular-crypto',
@@ -15,6 +16,18 @@ import { Subscription } from 'rxjs';
 })
 export class PopularCryptoComponent implements OnInit {
   tableData: CryptoDataSelected[] = [];
+  disableDelete: boolean = true;
+
+  notifierSubscriptionDelete: Subscription =
+    this.deleteButtonState.subjectNotifier.subscribe((notified) => {
+      console.log(this.deleteButtonState.getButtonState());
+      this.disableDelete = this.deleteButtonState.getButtonState();
+    });
+
+  notifierSubscriptionData: Subscription =
+    this.dataService.subjectNotifier.subscribe((notified) => {
+      this.tableData = this.tableDataServ.getTableData();
+    });
 
   onAddCrypto() {
     const addCryptoDialog = this.dialog.open(AddCryptopDialogComponent, {
@@ -30,20 +43,21 @@ export class PopularCryptoComponent implements OnInit {
     });
   }
 
-  notifierSubscription: Subscription =
-    this.dataService.subjectNotifier.subscribe((notified) => {
-      this.tableData = this.tableDataServ.getTableData();
-    });
-
   constructor(
     private tableDataServ: TableDataService,
     private dialog: MatDialog,
     private overlay: OverlayContainer,
-    private dataService: DataService
+    private dataService: DataService,
+    private deleteButtonState: DeleteButtonStateService
   ) {}
 
   ngOnInit(): void {
     this.tableData = this.tableDataServ.getTableData();
     this.overlay.getContainerElement().classList.add('darkMode');
+  }
+
+  ngOnDestroy() {
+    this.notifierSubscriptionData.unsubscribe();
+    this.notifierSubscriptionDelete.unsubscribe();
   }
 }

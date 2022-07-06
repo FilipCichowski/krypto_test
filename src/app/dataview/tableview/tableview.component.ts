@@ -1,3 +1,5 @@
+import { DataService } from 'src/app/services/refresh-data.service';
+import { DeleteButtonStateService } from './../../services/delete-button-state.service';
 import { TableDataService } from 'src/app/services/table-data.service';
 import { SelectedRowIdService } from './../../services/selected-row-id.service';
 import { Component, OnInit, Input, ViewChild } from '@angular/core';
@@ -16,20 +18,27 @@ export class TableviewComponent implements OnInit {
   @Input()
   data: CryptoDataSelected[] = [];
 
+  notifyForChange() {
+    this.deleteButtonState.notifyAboutChange();
+  }
+
   public setSelectedRowId() {
-    this.selectedRowId.setSelectedRowId(
-      this.dataGrid.instance.getSelectedRowsData()[0].id
-    );
-    console.log(this.selectedRowId.getSelectedRowId());
+    let selectedRowId = this.dataGrid.instance.getSelectedRowsData()[0].id;
+    this.selectedRowId.setSelectedRowId(selectedRowId);
+    this.deleteButtonState.requestButtonStateChange(selectedRowId);
+    this.notifyForChange();
   }
 
   public getSelectedRowId() {
     return this.selectedRowId;
   }
 
-  constructor(private selectedRowId: SelectedRowIdService) {}
+  constructor(
+    private selectedRowId: SelectedRowIdService,
+    private deleteButtonState: DeleteButtonStateService,
+  ) {}
 
   ngOnInit(): void {
-    console.log("tableview refreshed");
+    console.log('tableview refreshed');
   }
 }
