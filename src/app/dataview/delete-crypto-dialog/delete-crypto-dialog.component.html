@@ -1,10 +1,15 @@
-<div class="add-crypto">
+<div class="remove-crypto">
   <h3>Alert</h3>
   <h4>Czy chcesz usunąć kryptowalutę z katalogu Moich Kryptowalut?</h4>
-  <form autocomplete="off">
-    <div mat-dialog-actions>
-      <button mat-raised-button color="primary" type="submit" (click)="deleteCrypto()">TAK</button>
-      <button mat-raised-button color="warn">NIE</button>
-    </div>
-  </form>
+  <div class="buttons">
+    <button
+      mat-raised-button
+      color="primary"
+      type="submit"
+      (click)="deleteCrypto()"
+    >
+      TAK
+    </button>
+    <button mat-raised-button color="warn">NIE</button>
+  </div>
 </div>

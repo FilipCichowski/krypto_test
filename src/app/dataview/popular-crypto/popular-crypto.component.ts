@@ -31,14 +31,13 @@ export class PopularCryptoComponent implements OnInit {
 
   onAddCrypto() {
     const addCryptoDialog = this.dialog.open(AddCryptopDialogComponent, {
-      disableClose: true,
       panelClass: 'add-crypto-container',
     });
   }
 
   onDeleteCrypto() {
     const deleteCryptoDialog = this.dialog.open(DeleteCryptoDialogComponent, {
-      disableClose: false,
+      width: "20vw",
       panelClass: 'delete-crypto-container',
     });
   }

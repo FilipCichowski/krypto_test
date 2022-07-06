@@ -23,10 +23,13 @@ export class TableviewComponent implements OnInit {
   }
 
   public setSelectedRowId() {
-    let selectedRowId = this.dataGrid.instance.getSelectedRowsData()[0].id;
-    this.selectedRowId.setSelectedRowId(selectedRowId);
-    this.deleteButtonState.requestButtonStateChange(selectedRowId);
-    this.notifyForChange();
+    let tableSelectedRowId = this.dataGrid.instance.getSelectedRowsData()[0].id;
+    this.selectedRowId.setSelectedRowId(tableSelectedRowId);
+    if (
+      this.deleteButtonState.requestButtonStateChangeAndNotify(tableSelectedRowId)
+    ) {
+      this.notifyForChange();
+    }
   }
 
   public getSelectedRowId() {
@@ -35,7 +38,7 @@ export class TableviewComponent implements OnInit {
 
   constructor(
     private selectedRowId: SelectedRowIdService,
-    private deleteButtonState: DeleteButtonStateService,
+    private deleteButtonState: DeleteButtonStateService
   ) {}
 
   ngOnInit(): void {

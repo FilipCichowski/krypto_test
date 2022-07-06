@@ -15,8 +15,6 @@ export class DeleteCryptoDialogComponent implements OnInit {
     this.userSelected.removeSelectedById(selectedId);
     this.tableData.updateData();
     this.notifyForChange();
-    console.log("notify for change");
-    console.log(this.userSelected.getUserSelected());
   }
 
   notifyForChange() {

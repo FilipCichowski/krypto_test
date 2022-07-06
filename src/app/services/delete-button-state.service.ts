@@ -13,11 +13,17 @@ export class DeleteButtonStateService {
     this.disableDelete = state;
   }
 
-  requestButtonStateChange(id: string) {
+  requestButtonStateChangeAndNotify(id: string) {
+    const previousState = this.disableDelete;
     if (this.userSelected.getUserSelected().includes(id)) {
       this.setButtonState(false);
     } else {
       this.setButtonState(true);
+    }
+    if (previousState !== this.disableDelete) {
+      return true;
+    } else {
+      return false
     }
   }
 
