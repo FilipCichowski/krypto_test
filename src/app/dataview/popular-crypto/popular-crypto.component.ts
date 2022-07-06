@@ -1,3 +1,4 @@
+import { UserSelectedService } from './../../services/user-selected.service';
 import { DeleteCryptoDialogComponent } from './../delete-crypto-dialog/delete-crypto-dialog.component';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
@@ -29,6 +30,11 @@ export class PopularCryptoComponent implements OnInit {
       this.tableData = this.tableDataServ.getTableData();
     });
 
+  notifierSubscriptionUserSelected: Subscription =
+    this.userSelected.subjectNotifier.subscribe((notified) => {
+      this.tableData = this.tableDataServ.getTableData();
+    });
+
   onAddCrypto() {
     const addCryptoDialog = this.dialog.open(AddCryptopDialogComponent, {
       panelClass: 'add-crypto-container',
@@ -37,7 +43,7 @@ export class PopularCryptoComponent implements OnInit {
 
   onDeleteCrypto() {
     const deleteCryptoDialog = this.dialog.open(DeleteCryptoDialogComponent, {
-      width: "20vw",
+      width: '20vw',
       panelClass: 'delete-crypto-container',
     });
   }
@@ -47,7 +53,8 @@ export class PopularCryptoComponent implements OnInit {
     private dialog: MatDialog,
     private overlay: OverlayContainer,
     private dataService: DataService,
-    private deleteButtonState: DeleteButtonStateService
+    private deleteButtonState: DeleteButtonStateService,
+    private userSelected: UserSelectedService
   ) {}
 
   ngOnInit(): void {

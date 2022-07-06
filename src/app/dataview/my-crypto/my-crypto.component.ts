@@ -17,6 +17,8 @@ export class MyCryptoComponent implements OnInit {
       this.dataSelected = this.tableData.getTableDataSelectedOnly();
     });
 
+
+
   constructor(
     private tableData: TableDataService,
     private dataService: DataService
@@ -25,5 +27,10 @@ export class MyCryptoComponent implements OnInit {
   ngOnInit(): void {
     this.dataSelected = this.tableData.getTableDataSelectedOnly();
     console.log(this.dataSelected);
+  }
+
+  ngOnDestroy() {
+    this.notifierSubscription.unsubscribe();
+
   }
 }

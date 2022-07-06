@@ -1,9 +1,11 @@
 import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class UserSelectedService {
+  subjectNotifier: Subject<null> = new Subject<null>();
   // mock user's crypto data
   private userSelected: string[] = [
     'bitcoin',
@@ -11,6 +13,10 @@ export class UserSelectedService {
     'tether',
     'dogecoin',
   ];
+
+  notifyAboutChange() {
+    this.subjectNotifier.next(null);
+  }
 
   public removeSelectedById(id: string) {
     this.userSelected.splice(
@@ -20,7 +26,9 @@ export class UserSelectedService {
   }
 
   public addUserSelected(id: string) {
-    this.userSelected.push(id);
+    if (!this.userSelected.includes(id)) {
+      this.userSelected.push(id);
+    }
   }
 
   public getUserSelected() {

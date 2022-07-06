@@ -27,6 +27,7 @@ export class CoinDataService {
   // }
 
   // just for debugging purpose
+
   refreshCryptoData() {
     this.mostPopularCrypto.getMostPopular().forEach((id) => {
       let singleCryptoInfo: CryptoData = {} as CryptoData;
