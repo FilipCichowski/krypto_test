@@ -12,6 +12,7 @@ export class TableDataService {
   private tableDataSelectedOnly: CryptoDataSelected[] = [];
 
   private updateTableData() {
+    this.tableData = [];
     for (let e of this.coinData.getCryptoData()) {
       if (this.userSelected.getUserSelected().includes(e.id)) {
         this.tableData.push({...e, isSelected: true})
@@ -22,11 +23,18 @@ export class TableDataService {
   }
 
   private updateTableDataSelectedOnly() {
+    this.tableDataSelectedOnly = [];
     this.tableData.forEach((e: any) => {
       if (e.isSelected) {
         this.tableDataSelectedOnly.push(e);
       }
     });
+   
+  }
+
+  public updateData() {
+    this.updateTableData();
+    this.updateTableDataSelectedOnly();
   }
 
   public getTableData() {
@@ -41,9 +49,9 @@ export class TableDataService {
     private coinData: CoinDataService,
     private userSelected: UserSelectedService
   ) {
-    this.updateTableData();
-    this.updateTableDataSelectedOnly();
+    this.updateData()
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+  }
 }

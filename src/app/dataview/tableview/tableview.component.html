@@ -1,4 +1,4 @@
-<dx-data-grid [dataSource]="data">
+<dx-data-grid #dataGridRef [dataSource]="data" (onRowClick)="setSelectedRowId()">
   <dxo-scrolling mode="standard" [useNative]="true"></dxo-scrolling>
   <dxo-selection mode="single"> </dxo-selection>
   <dxi-column

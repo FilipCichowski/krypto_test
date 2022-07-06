@@ -9,7 +9,12 @@
   >
     Dodaj do moich
   </button>
-  <button mat-raised-button color="warn" [disabled]="false">
+  <button
+    mat-raised-button
+    color="warn"
+    [disabled]="false"
+    (click)="onDeleteCrypto()"
+  >
     Usuń z moich
   </button>
 </div>
