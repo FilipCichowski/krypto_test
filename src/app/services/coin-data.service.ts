@@ -34,9 +34,9 @@ export class CoinDataService {
       singleCryptoInfo.id = id;
       singleCryptoInfo.symbol = id;
       singleCryptoInfo.name = id;
-      singleCryptoInfo.price = 2137;
-      singleCryptoInfo.low = 69;
-      singleCryptoInfo.high = 420;
+      singleCryptoInfo.price = 1337;
+      singleCryptoInfo.low = 73;
+      singleCryptoInfo.high = 8888;
       singleCryptoInfo.marketCap = 7;
       singleCryptoInfo.img =
         'https://assets.coingecko.com/coins/images/1/thumb/bitcoin.png?1547033579';
