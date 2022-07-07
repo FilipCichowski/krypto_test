@@ -1,4 +1,4 @@
 <div [ngSwitch]="activeElementId">
-  <app-popular-crypto *ngSwitchCase="1"></app-popular-crypto>
-  <app-my-crypto *ngSwitchCase="2"></app-my-crypto>
+  <app-data-view *ngSwitchCase="1" header="Popularne kryptowaluty"></app-data-view>
+  <app-data-view *ngSwitchCase="2" header="Mojek kryptowaluty" [showSelectedOnly]="true" ></app-data-view>
 </div>

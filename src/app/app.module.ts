@@ -15,11 +15,10 @@ import { DataviewComponent } from './dataview/dataview.component';
 import { UserInfoComponent } from './sidebar/user-info/user-info.component';
 import { ViewSelectorComponent } from './sidebar/view-selector/view-selector.component';
 import { SelectorButtonComponent } from './sidebar/view-selector/selector-button/selector-button.component';
-import { MyCryptoComponent } from './dataview/my-crypto/my-crypto.component';
-import { PopularCryptoComponent } from './dataview/popular-crypto/popular-crypto.component';
-import { TableviewComponent } from './dataview/tableview/tableview.component';
+import { TableViewComponent } from './dataview/tableview/tableview.component';
 import { AddCryptopDialogComponent } from './dataview/add-cryptop-dialog/add-cryptop-dialog.component';
 import { DeleteCryptoDialogComponent } from './dataview/delete-crypto-dialog/delete-crypto-dialog.component';
+import { DataViewComponent } from './dataview/data-view/data-view.component';
 
 @NgModule({
   declarations: [
@@ -30,11 +29,10 @@ import { DeleteCryptoDialogComponent } from './dataview/delete-crypto-dialog/del
     UserInfoComponent,
     ViewSelectorComponent,
     SelectorButtonComponent,
-    MyCryptoComponent,
-    PopularCryptoComponent,
-    TableviewComponent,
+    TableViewComponent,
     AddCryptopDialogComponent,
     DeleteCryptoDialogComponent,
+    DataViewComponent,
   ],
   imports: [
     BrowserModule,

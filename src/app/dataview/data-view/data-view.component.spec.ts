@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PopularCryptoComponent } from './popular-crypto.component';
+import { DataViewComponent } from './data-view.component';
 
-describe('PopularCryptoComponent', () => {
-  let component: PopularCryptoComponent;
-  let fixture: ComponentFixture<PopularCryptoComponent>;
+describe('DataViewComponent', () => {
+  let component: DataViewComponent;
+  let fixture: ComponentFixture<DataViewComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PopularCryptoComponent ]
+      declarations: [ DataViewComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(PopularCryptoComponent);
+    fixture = TestBed.createComponent(DataViewComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

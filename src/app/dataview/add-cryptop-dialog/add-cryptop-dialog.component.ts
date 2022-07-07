@@ -24,7 +24,6 @@ export class AddCryptopDialogComponent implements OnInit {
   saveValue() {
     this.userSelected.addUserSelected(this.selectedValue);
     this.notifyForChange();
-    console.log(this.userSelected.getUserSelected());
   }
 
   constructor(
